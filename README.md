@@ -6,6 +6,7 @@ This is practice from classes https://www.udemy.com/course/nodejs-the-complete-g
 - 啟動 deno-api
     
     ```jsx
+    cd /deno-api
     deno run --allow-net app.ts
     ```
     
