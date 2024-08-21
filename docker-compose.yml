@@ -28,6 +28,16 @@ services:
     ports:
       - "8081:8081"
 
+  frontend:
+    build:
+      context: ./frontend-app
+      dockerfile: Dockerfile
+    container_name: frontend-app
+    ports:
+      - 3000:3000
+    networks:
+      - some-network
+      
 networks:
   some-network:
     driver: bridge
