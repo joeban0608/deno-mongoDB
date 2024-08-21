@@ -37,7 +37,16 @@ services:
       - 3000:3000
     networks:
       - some-network
-      
+
+  deno-api:
+    build:
+      context: ./deno-api
+    container_name: deno-api
+    ports:
+      - "8000:8000"
+    networks:
+      - some-network
+
 networks:
   some-network:
     driver: bridge

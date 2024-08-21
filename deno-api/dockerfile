@@ -1,0 +1,15 @@
+FROM denoland/deno:alpine
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the project files into the container
+COPY ./app.ts ./
+COPY ./helpers ./helpers
+COPY ./routes ./routes
+
+# Install any necessary dependencies
+RUN deno cache app.ts
+
+# Run the application
+CMD ["run", "--allow-net", "app.ts"]

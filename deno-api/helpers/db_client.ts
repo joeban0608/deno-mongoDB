@@ -18,7 +18,8 @@ export const connectDb = async () => {
     tls: false, // Set to true if you are using TLS
     servers: [
       {
-        host: "127.0.0.1",
+        // host: "127.0.0.1",
+        host: "mongo",
         port: 27017,
       },
     ],
