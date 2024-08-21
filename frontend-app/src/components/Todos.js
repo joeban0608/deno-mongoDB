@@ -33,6 +33,7 @@ const Todos = () => {
   };
 
   const deleteTodoHandler = async (todoId) => {
+    console.log("todoId", todoId);
     const response = await fetch("http://localhost:8000/todoList/" + todoId, {
       method: "DELETE",
     });
@@ -53,7 +54,7 @@ const Todos = () => {
     let url = "http://localhost:8000/todoList";
     let method = "POST";
     if (editedTodo) {
-      url = url + "/" + editedTodo.id;
+      url = url + "/" + editedTodo._id;
       method = "PUT";
     }
     const response = await fetch(url, {
@@ -82,13 +83,13 @@ const Todos = () => {
       {todos && todos.length > 0 && (
         <ul className="todos__list">
           {todos.map((todo) => (
-            <li key={todo.id}>
+            <li key={todo._id}>
               <span>{todo.text}</span>
               <div className="todo__actions">
                 <button onClick={startEditHandler.bind(null, todo)}>
                   Edit
                 </button>
-                <button onClick={deleteTodoHandler.bind(null, todo.id)}>
+                <button onClick={deleteTodoHandler.bind(null, todo._id)}>
                   Delete
                 </button>
               </div>

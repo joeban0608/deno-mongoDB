@@ -1,6 +1,9 @@
 // https://deno.land/x/oak@v16.1.0
 import { Application } from "https://deno.land/x/oak@v16.1.0/mod.ts";
 import todoRoutes from "./routes/todoList.ts";
+import { connectDb } from "./helpers/db_client.ts";
+
+connectDb()
 const app = new Application();
 
 app.use(async (ctx, next) => {
