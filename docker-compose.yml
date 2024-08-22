@@ -46,6 +46,9 @@ services:
       - "8000:8000"
     networks:
       - some-network
+    depends_on:
+      - mongo
+    restart: always
 
 networks:
   some-network:
